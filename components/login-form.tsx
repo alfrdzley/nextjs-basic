@@ -12,16 +12,17 @@ import {
 import {Input} from "@/components/ui/input"
 import {Label} from "@/components/ui/label"
 import React from "react";
-import { signIn, useSession } from "next-auth/react"
-
+import {signIn, useSession} from "next-auth/react"
+import {useRouter} from "next/navigation";
 
 export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 
   // Hooks
   const {data: session} = useSession();
+  const router = useRouter();
 
   if (session) {
-    console.log(session.user);
+    router.push('/dashboard')
 
   } else {
     console.log('not logged in');
@@ -84,6 +85,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
             </form>
           </CardContent>
         </Card>
+
       </div>
   )
 }
