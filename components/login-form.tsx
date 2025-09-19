@@ -15,6 +15,7 @@ import React from "react";
 import {signIn, useSession} from "next-auth/react"
 import {useRouter} from "next/navigation";
 
+
 export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 
   // Hooks
@@ -23,7 +24,6 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 
   if (session) {
     router.push('/dashboard')
-
   } else {
     console.log('not logged in');
   }
@@ -85,7 +85,6 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
             </form>
           </CardContent>
         </Card>
-
       </div>
   )
 }
