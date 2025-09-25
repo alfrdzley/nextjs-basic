@@ -21,11 +21,10 @@ export default function Page() {
   const {data: session, status} = useSession()
   const router = useRouter();
 
-  if(!session && status !== 'loading') {
+  if (!session && status !== 'loading') {
     router.push('/signin')
+  } else {
   }
-  // console.log(session)
-
   return (
       <SidebarProvider
           style={
