@@ -1,5 +1,3 @@
-'use client'
-
 import {AppSidebar} from "@/components/app-sidebar"
 import {ChartAreaInteractive} from "@/components/chart-area-interactive"
 import {DataTable} from "@/components/data-table"
@@ -10,21 +8,9 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import data from './data.json'
-import React from "react";
-import {useSession} from "next-auth/react";
-import {useRouter} from "next/navigation";
+import data from "./data.json"
 
 export default function Page() {
-
-  // Hooks
-  const {data: session, status} = useSession()
-  const router = useRouter();
-
-  if(!session && status !== 'loading') {
-    router.push('/signin')
-  }
-  // console.log(session)
 
   return (
       <SidebarProvider
