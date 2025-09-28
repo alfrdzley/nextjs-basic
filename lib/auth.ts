@@ -1,16 +1,11 @@
-import {betterAuth} from "better-auth";
-import {prismaAdapter} from "better-auth/adapters/prisma";
-// If your Prisma file is located elsewhere, you can change the path
-import {PrismaClient} from "@/generated/prisma";
+import NextAuth from "next-auth";
 
-const prisma = new PrismaClient();
-export const auth = betterAuth({
-  database: prismaAdapter(prisma, {
-        provider: "mongodb",
-      },
-  ),
-  emailAndPassword: {
-    enabled: true,
-  }
+import Google from "next-auth/providers/google"
 
-});
+export const {handlers} = NextAuth({
+  providers: [
+    Google
+  ],
+  callbacks: {}
+
+})
